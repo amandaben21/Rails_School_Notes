@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_04_03_044339) do
     t.string "subject"
     t.string "date"
     t.string "note_entry"
+    t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
