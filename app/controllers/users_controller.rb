@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
     
     def new
+        #form to create user
     end
 
     def show
+        #show the notes that the user entered
     end
 
     def edit
@@ -13,5 +15,8 @@ class UsersController < ApplicationController
     end
 
     def create
+    end
+
+    def destory
     end
 end
