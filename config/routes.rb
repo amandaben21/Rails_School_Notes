@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :subjects
   resources :notes
   resources :users, only: [:show, :edit, :update, :create]
 
