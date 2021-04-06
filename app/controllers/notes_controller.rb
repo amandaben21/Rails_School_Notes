@@ -2,10 +2,12 @@ class NotesController < ApplicationController
 
     def index
         #who this should be accessible by?
+        @notes = current_user.notes
     end
 
     def show
         #see the notes they created
+        @note = Note.find_by_id(params[:id])
     end
 
     def new
