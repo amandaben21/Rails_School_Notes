@@ -4,14 +4,4 @@
 <h3>Your Note Entry</h3>
 <hr>
 <br>
-Lesson: <%= @note.lesson_name %>
-<br>
-Date: <%= @note.date %>
-<br>
-Notes: <%= @note.note_entry %>
-<a href="/notes/<%= @note.id%>/edit">Edit</a>
 
-<form action="/notes/<%= @note.id %>/delete" method="post">
-    <input id="hidden" type="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Note">
-</form>
