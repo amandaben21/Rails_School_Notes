@@ -7,19 +7,22 @@ class SessionsController < ApplicationController
 
     def create
         #logging in
-        @user = User.find_by_username(params[:user][:username])
+        @user = User.find_by_username(params[:username])
         
-        if @user && @user.authenticate(params[:user][:password])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to notes_path
+            redirect_to note_path(@user)
         else
             render :new
         end
     end
 
+    def home
+    end
+
     def destroy
         #logging out
         session.clear
-        redirect_to "/"
+        redirect_to root_path
     end
 end
