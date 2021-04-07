@@ -1,5 +1,5 @@
 <h1>List of all your Notes</h1>
-<br>
+<br><br>
 <% @notes.each do |note| %>
     <%= link_to note.lesson_name, note_path(note) %>    
 <% end %>
