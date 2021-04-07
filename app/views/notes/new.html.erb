@@ -1,0 +1,23 @@
+<br>
+<br>
+<br>
+<h2>Create Your Class Notes</h2>
+<br>
+
+<%= form_tag(new_note_path) do %>
+  
+ <%= label_tag :lesson_name %>
+ <%= text_field_tag :lesson_name %>
+ <br><br>
+
+ <%= label_tag :date %>
+ <%= text_field_tag :date %>
+ <br><br>
+ 
+ <%= label_tag :note_entry %>
+ <%= text_area_tag :note_entry, nil, cols:80, rows:20 %>
+ <br><br>
+
+  <%= submit_tag "New Note" %>
+
+<% end %>
