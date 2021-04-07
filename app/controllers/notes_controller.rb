@@ -14,6 +14,12 @@ class NotesController < ApplicationController
     end
 
     def create
+        @note = Note.new(note_params)
+        if @note.save
+            redirect_to note_path
+        else
+            render :new
+        end
     end
 
     def edit
@@ -25,6 +31,12 @@ class NotesController < ApplicationController
 
     def destory
         #restrict access to current_user
+    end
+
+    private
+    
+    def note_params
+        params.require(:note).permit(:lesson_name)
     end
 
 end
