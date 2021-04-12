@@ -1,14 +1,15 @@
-<br>
-<h1>Login</h1>
+<div class="container">
+    <br>
+    <h1>Login</h1>
+    <%= form_tag(login_path) do %>
+        <%= label_tag :username %>
+        <%= text_field_tag :username %>
+        <br><br>
 
-<%= form_tag(login_path) do %>
-    <%= label_tag :username %>
-    <%= text_field_tag :username %>
-    <br><br>
-
-    <%= label_tag :password %>
-    <%= password_field_tag :password %>
-    <br><br>
+        <%= label_tag :password %>
+        <%= password_field_tag :password %>
+        <br><br>
     
-    <%= submit_tag "Login" %>
-<% end %>
+        <%= submit_tag "Login" %>
+    <% end %>
+</div>
