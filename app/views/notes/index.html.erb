@@ -1,9 +1,10 @@
 <div class="container">
     <br>
-    <h3>List of all your Notes</h3>
+    <h3>List of all your Lessons</h3>
     <ul>
         <% @notes.each do |note| %>
-         <li><%= link_to note.subject.name, note_path(note) %></li>
+         <li><%= link_to note.lesson_name, note_path(note) %></li>
         <% end %>
     </ul>
+    
 </div>

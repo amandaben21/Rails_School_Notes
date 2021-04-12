@@ -1,15 +1,15 @@
-<div class="container"> 
-  <h1><%= @subject.name %></h1>
-
-  <h3>Notes:</h3>
-
-
-
-  <ul>
+<div class="container">
+  <br>
+  <h2><%= @subject.name %></h2>
   
-    <% @subject.notes.each do |note| %>
-      <li><%= link_to note.lesson_name, note_path(note) %></li>
-    <% end  %>
 
+  <h5>Lessons:</h5>
+  
+  <ul>
+    <ol>
+      <% @subject.notes.each do |note| %>
+        <li><%= link_to note.lesson_name, note_path(note) %></li>
+      <% end  %>
+    </ol>
   </ul>
 </div>

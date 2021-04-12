@@ -16,7 +16,7 @@ class NotesController < ApplicationController
         @note = current_user.notes.build(note_params)
         
         if @note.save
-            redirect_to user_path(@note)
+            redirect_to note_path(@note)
         else
             render :new
         end
@@ -39,13 +39,9 @@ class NotesController < ApplicationController
         end
     end
 
-    def destory
-        if @note
-            @note.destory
-            redirect_to note_path
-        else
-            redirect_to note_path(@notes)
-        end
+    def destroy
+       Note.find(params[:id]).destroy
+       redirect_to notes_path
     end
 
     private

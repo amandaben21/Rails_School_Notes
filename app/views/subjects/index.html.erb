@@ -1,7 +1,11 @@
-<ul>
-  <% @subjects.each do |subject| %>
-    <li>
-      <%= link_to subject.name, subject_path(subject) %>
-    </li>
-  <% end %>
-</ul>
+<div class="container">
+  <br>
+  <h3>List of your Subject</h3>
+  <ul>
+    <% @subjects.each do |subject| %>
+      <li>
+        <%= link_to subject.name, subject_path(subject) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

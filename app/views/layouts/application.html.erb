@@ -25,17 +25,19 @@
         <%= link_to "All notes", notes_path %>
         <br>
         <%= link_to "Create your note", new_note_path %>
+        <br>
+        <%= link_to 'Subjects', subjects_path %>
         <br><br>
         <%= link_to "Logout", logout_path %>
       <% else %>
-        <%= link_to root_path%>
+        <%= link_to root_path %>
       <% end %>
 
     </div>
 
     <div>
       <% if flash[:message] %>
-        <%= flash[:message]%>
+        <%= flash[:message] %>
       <% end %>
       
       <%= @error %>
