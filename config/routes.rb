@@ -9,9 +9,9 @@ Rails.application.routes.draw do
   
   get '/logout', to: "sessions#destroy"
 
-  resources :subjects
   resources :notes
   resources :users
+  resources :subjects
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
