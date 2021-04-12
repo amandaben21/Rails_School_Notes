@@ -1,18 +1,19 @@
-<br>
-<h1>User Sign Up</h1>
+<div class="container">
+   <br>
+    <h1>User Sign Up</h1>
 
-<%= form_for @user do |f| %>
-    <%= f.label :username %>
-    <%= f.text_field :username %>
-    <br><br>
+    <%= simple_form_for @user do |f| %>
+        <%= f.input :username %>
+    
+        <br><br>
 
-    <%= f.label :email %>
-    <%= f.email_field :email %>
-    <br><br>
+        <%= f.input :email %>
+        <br><br>
     
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br><br>
+        <%= f.input :password %>
     
-    <%= f.submit "Signup" %>
-<% end %>
+        <br><br>
+    
+        <%= f.button :submit, class:"btn-primary" %>
+    <% end %>
+</div>
