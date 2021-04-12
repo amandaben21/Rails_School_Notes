@@ -1,5 +1,9 @@
-<h1>List of all your Notes</h1>
-<br><br>
-<% @notes.each do |note| %>
-    <%= link_to note.lesson_name, note_path(note) %>    
-<% end %>
+<div class="container">
+    <br>
+    <h3>List of all your Notes</h3>
+    <ul>
+        <% @notes.each do |note| %>
+         <li><%= link_to note.subject.name, note_path(note) %></li>
+        <% end %>
+    </ul>
+</div>
