@@ -1,0 +1,15 @@
+<div class="container"> 
+  <h1><%= @subject.name %></h1>
+
+  <h3>Notes:</h3>
+
+
+
+  <ul>
+  
+    <% @subject.notes.each do |note| %>
+      <li><%= link_to note.lesson_name, note_path(note) %></li>
+    <% end  %>
+
+  </ul>
+</div>
