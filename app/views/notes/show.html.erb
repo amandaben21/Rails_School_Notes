@@ -1,7 +1,15 @@
-<br>
-<br>
+<div class="container">   
+    <br>
+    <br>
 
-<h3>Your Note Entry</h3>
-<hr>
-<br>
-
+    <h3>Your Note Entries</h3>
+    <br>
+    Subject: <%= @note.subject.name %>
+    <br>
+    Lesson: <%= @note.lesson_name%>
+    <br>
+    Date: <%= @note.date %>
+    <br>
+    Note: <%= @note.note_entry%>
+    <%= link_to 'Edit', edit_note_path(@note) %>
+</div>
