@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to note_path(@user)
         else
+            @error = "That user doesn't exist" if params[:user_id]
             render :new
         end
     end
