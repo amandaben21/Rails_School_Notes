@@ -16,9 +16,10 @@
   </head>
 
   <body>
-    <div>
+    <div class="container">
+      
       <% if logged_in? %>
-       <br>
+        <br>
         <h1>Welcome <%= current_user.username %></h1>
 
         <%= link_to "All notes", notes_path %>
@@ -30,6 +31,14 @@
         <%= link_to root_path%>
       <% end %>
 
+    </div>
+
+    <div>
+      <% if flash[:message] %>
+        <%= flash[:message]%>
+      <% end %>
+      
+      <%= @error %>
     </div>
     <%= yield %>
   </body>
