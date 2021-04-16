@@ -6,8 +6,7 @@ ruby '2.6.1'
 gem 'dotenv-rails' 
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
-
-gem "omniauth-rails_csrf_protection"
+gem 'omniauth-rails_csrf_protection'
 
 
 gem 'pry'
