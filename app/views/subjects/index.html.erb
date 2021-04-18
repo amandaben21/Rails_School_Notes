@@ -1,11 +1,12 @@
 <div class="container">
   <br>
-  <h3>List of your Subject</h3>
+  <h3>Click on a subject to see everyone note's</h3>
   <ul>
     <% @subjects.each do |subject| %>
       <li>
         <%= link_to subject.name, subject_path(subject) %>
       </li>
+        
     <% end %>
   </ul>
 </div>

@@ -12,7 +12,7 @@
     
         <br>
 
-        <p> Or Create a New Subject:</p><br>
+        <p> Or Create a New Subject:</p>
     
         <%= f.fields_for :subject do |sub_fields|%>
             <%= sub_fields.label :subject %>
@@ -31,7 +31,7 @@
         <%= f.label :note_entry %><br>
         <%= f.text_area :note_entry, cols:80, rows:20 %>
         <br>
-        <%= f.hidden_field :user_id, value: @note.user_id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
         <br>
         <%= f.submit %>
    

@@ -2,8 +2,8 @@
     <br>
     <h3>List of all your Lessons</h3>
     <ul>
-        <% @notes.each do |note| %>
-         <li><%= link_to note.lesson_name, note_path(note) %></li>
+        <% @notes.each do |note| %> 
+         <li><%= link_to note.lesson_name, note_path(note) %>- By: <%= note.user.username %></li>
         <% end %>
     </ul>
     

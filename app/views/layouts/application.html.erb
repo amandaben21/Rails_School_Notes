@@ -22,11 +22,11 @@
         <br>
         <h1>Welcome <%= current_user.username %></h1>
 
-        <%= link_to "All notes", notes_path %>
-        <br>
         <%= link_to "Create your note", new_note_path %>
         <br>
-        <%= link_to 'Subjects', subjects_path %>
+        <%= link_to "My Notes", user_notes_path(current_user)%>
+        <br>
+        <%= link_to "Subjects", note_subjects_path(current_user)%>
         <br><br>
         <%= link_to "Logout", logout_path %>
       <% else %>

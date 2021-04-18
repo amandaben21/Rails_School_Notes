@@ -23,12 +23,13 @@ class NotesController < ApplicationController
     end
 
     def show
+        redirect_to notes_path if !@note
     end
 
     def edit
         
     end
-
+    
     def update
         @note.update(note_params)
         
@@ -51,7 +52,7 @@ class NotesController < ApplicationController
     end
 
     def set_note
-        @note = current_user.notes.find_by_id(params[:id])
+        @note = Note.find_by_id(params[:id])
     end
 
 end
