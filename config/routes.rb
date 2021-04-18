@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+
   root "sessions#home"
+  post '/', to: "sessions#home"
   
   get '/signup', to: "users#new"
   post '/signup', to: "users#create"
@@ -9,9 +11,21 @@ Rails.application.routes.draw do
   
   get '/logout', to: "sessions#destroy"
 
-  resources :notes
-  resources :users
-  resources :subjects
+  resources :comments
+
+  resources :notes do
+    resources :subjects
+  end
+  
+  resources :subjects, only:[:index, :show]
+
+  resources :users do
+    resources :notes, shallow: true
+  end
+
+  
+
+  get '/auth/:provider/callback', to: "sessions#omniauth"
 
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
