@@ -1,8 +1,9 @@
 require 'securerandom'
 
 class User < ApplicationRecord
-    has_many :comments
     has_many :notes
+    has_many :comments
+    has_many :commented_notes, through: :comments, source: :note
     has_many :subjects, through: :notes
 
     has_secure_password

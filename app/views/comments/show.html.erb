@@ -1,0 +1,10 @@
+<div class="container">
+  <h1>Show<h1>
+
+  <h2><%= @comment.content%> - <%= @comment.user.username%></h2>
+
+  <% if @comment.user == current_user %>
+    <%= link_to "Edit Comment", edit_comment_path(@comment)%>
+  <% end %>
+
+</div>

@@ -1,19 +1,19 @@
 class CommentsController < ApplicationController
     
     before_action :redirect_if_not_logged_in
-    before_action :set_comment, only: [:edit, :update, :show]
+    before_action :set_comment, only: [:show, :edit, :update]
 
     def index
-        if params[:note_id] && @note = Note.find_by_id(params[:note_id])
-            @comments = @note.comments
+        if params[:note_id] && @user = User.find_by_id(params[:note_id])
+            @comments = @notes.comments
         else
-            @errors = "Note does not exist" if params[:note_id]
-            @comment = Comment.all
+            @error = "That note doesn't exist" if params[:note_id]
+            @comments = Comment.all
         end
     end
 
     def new
-        if params[:note_id] && @note = Note.find_by_id(params[:note_id])
+        if params[:note_id] && @note = Note.find_by_id(params[:note_id]) && !current_user
             @comment = @note.comments.build
         else
             @comment = Comment.new
@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     end
 
     def create
-        @comment = current_user.comments.bulid(comment_params)
+        @comment = current_user.comments.build(comment_params)
         if @comment.save
             redirect_to comments_path
         else
@@ -31,11 +31,12 @@ class CommentsController < ApplicationController
 
 
     def show
-        redirect_to note_comment_path if !@comment
+        redirect_to note_comments_path if !@comment
     end
 
     def update
         if @comment.update(comment_params)
+
             redirect_to note_comment_path(@comment)
         else
             render :edit
@@ -46,7 +47,7 @@ class CommentsController < ApplicationController
     end
 
     def destroy
-        Comment.find_by_id(params[:id]).destroy
+        Comment.find(params[:id]).destroy
         redirect_to comments_path
     end
 

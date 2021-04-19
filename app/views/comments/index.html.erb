@@ -1,0 +1,15 @@
+<div class="container">
+    <% if @note %>
+    <h1>Comments for <%= @note.lesson_name %></h1>
+  <% else %>
+    <h1>All Comments</h1>
+  <% end %>
+  
+  <ul>
+  <% @comments.each do |c|%>
+    <li><%= c.user.username%> says "<%= c.content%>" about this note: <strong><%= link_to c.note.lesson_name, note_path(c.note_id) %></strong></li>
+  <% end %>
+  </ul>
+</div>
+
+test ;lfjvkjdljkgfgfklzdfmgndflgmnk/zdflmbg

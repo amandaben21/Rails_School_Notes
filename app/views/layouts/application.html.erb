@@ -26,8 +26,10 @@
         <br>
         <%= link_to "My Notes", user_notes_path(current_user)%>
         <br>
-        <%= link_to "Subjects", note_subjects_path(current_user)%>
-        <br><br>
+        <%= link_to "Subjects", subjects_path %>
+        <br>
+        <%= link_to "All Comments", comments_path %>
+        <br>
         <%= link_to "Logout", logout_path %>
       <% else %>
         <%= link_to root_path %>

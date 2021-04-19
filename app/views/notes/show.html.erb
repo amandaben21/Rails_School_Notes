@@ -2,7 +2,7 @@
     <br>
     <br>
 
-    <h3>Your Note Entries</h3>
+    <h3>Note Entry</h3>
     <br>
     Subject: <%= @note.subject.name %>
     <br>
@@ -12,8 +12,10 @@
     <br>
     Note: <%= @note.note_entry%>
 
- 
+    <% if @note.user == current_user %>
+        <%= link_to 'Edit', edit_note_path(@note) %>
+        <%= link_to 'Back', notes_path %>
+    <% end %>
 
-    <%= link_to 'Edit', edit_note_path(@note) %>
-    <%= link_to 'Back', notes_path %>
+    <p><%= link_to "Leave a comment about their notes", new_note_comment_path(@note) %></p>
 </div>
