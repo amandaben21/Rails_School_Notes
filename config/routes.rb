@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   root "sessions#home"
   post '/', to: "sessions#home"
   
@@ -10,12 +9,12 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create" #to process the information
   
   get '/logout', to: "sessions#destroy"
-
-  resources :comments
-
+  
+  
   resources :notes do
-    resources :subjects
+    resources :comments
   end
+  resources :comments
   
   resources :subjects, only:[:index, :show]
 
