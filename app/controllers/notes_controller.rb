@@ -4,12 +4,21 @@ class NotesController < ApplicationController
     before_action :set_note, only: [:show, :edit, :update]
     
     def index
-        @notes = current_user.notes
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @notes = @user.notes
+        else
+            @error = "That user doesn't exist" if params[:user_id]
+            @notes = Notes.all
+        end
     end
 
     def new
-        @note = Note.new
-        @note.build_subject
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+            @note = @user.notes.build
+        else 
+            @note = Note.new
+            #@note.build_subject
+        end
     end
 
     def create
@@ -23,13 +32,16 @@ class NotesController < ApplicationController
     end
 
     def show
-        redirect_to notes_path if !@note
+        #@comment = Comment.new
+        #@comment = @note.comments
+        
+        #redirect_to note_path if !@note
     end
 
     def edit
         
     end
-    
+
     def update
         @note.update(note_params)
         
@@ -52,7 +64,12 @@ class NotesController < ApplicationController
     end
 
     def set_note
-        @note = Note.find_by_id(params[:id])
+        if Note.find_by_id(params[:id])
+            @note = Note.find_by_id(params[:id])
+            @comments = @note.comments
+        else
+            redirect_to notes_path if !@note
+        end
     end
 
 end
