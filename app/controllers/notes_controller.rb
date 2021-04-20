@@ -4,16 +4,13 @@ class NotesController < ApplicationController
     before_action :set_note, only: [:show, :edit, :update]
     
     def index
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-            @notes = @user.notes
-        else
-            @notes = Note.all
-        end
+        @notes = current_user.notes
     end
 
     def new
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @note = @user.notes.build
+            
         else 
             @note = Note.new
             @note.build_subject
@@ -26,6 +23,7 @@ class NotesController < ApplicationController
         if @note.save
             redirect_to note_path(@note)
         else
+            @note.build_subject
             render :new
         end
     end
