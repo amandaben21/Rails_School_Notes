@@ -13,10 +13,15 @@ class CommentsController < ApplicationController
     end
 
     def new
-        if params[:note_id] && @note = Note.find_by_id(params[:note_id]) && !current_user
-            @comment = @note.comments.build
+       
+        if params[:note_id] && @note = Note.find_by_id(params[:note_id])  
+            if @note.user != current_user 
+                @comment = @note.comments.build
+            else 
+                redirect_to comments_path
+            end
         else
-            @comment = Comment.new
+            redirect_to notes_path
         end
     end
 
