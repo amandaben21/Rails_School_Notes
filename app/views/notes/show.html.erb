@@ -4,13 +4,13 @@
 
     <h3>Note Entry</h3>
     <br>
-    Subject: <%= @note.subject.name %>
+    <strong>Subject:</strong> <%= @note.subject.name %>
     <br>
-    Lesson: <%= @note.lesson_name %>
+    <strong>Lesson:</strong> <%= @note.lesson_name %>
     <br>
-    Date: <%= @note.date %>
+    <strong>Date:</strong><%= @note.date %>
     <br>
-    Note: <%= @note.note_entry%>
+    <strong>Note:</strong> <%= @note.note_entry%>
 
     <% if @note.user == current_user %>
         <%= link_to 'Edit', edit_note_path(@note) %>

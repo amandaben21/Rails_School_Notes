@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
         if params[:note_id] && @user = User.find_by_id(params[:note_id])
             @comments = @notes.comments
         else
-            @error = "That note doesn't exist" if params[:note_id]
+           
             @comments = Comment.all
         end
     end

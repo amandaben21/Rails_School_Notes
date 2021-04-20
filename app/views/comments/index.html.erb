@@ -2,12 +2,12 @@
     <% if @note %>
     <h1>Comments for <%= @note.lesson_name %></h1>
   <% else %>
-    <h1>All Comments of your notes</h1>
+    <h1>All Comments of notes</h1>
   <% end %>
   
   <ul>
   <% @comments.each do |c|%>
-    <li><%= c.user.username%> says "<%= c.content%>" about this note: <strong><%= link_to c.note.lesson_name, note_path(c.note_id) %></strong></li>
+    <li><strong><%= c.user.username%></strong> says "<%= c.content%>" about this note: <strong><%= link_to c.note.lesson_name, note_path(c.note_id) %></strong></li>
   <% end %>
   </ul>
 </div>
