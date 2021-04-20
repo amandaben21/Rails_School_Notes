@@ -6,7 +6,7 @@
     <br>
     Subject: <%= @note.subject.name %>
     <br>
-    Lesson: <%= @note.lesson_name%>
+    Lesson: <%= @note.lesson_name %>
     <br>
     Date: <%= @note.date %>
     <br>
@@ -16,6 +16,8 @@
         <%= link_to 'Edit', edit_note_path(@note) %>
         <%= link_to 'Back', notes_path %>
     <% end %>
-
-    <p><%= link_to "Leave a comment about their notes", new_note_comment_path(@note) %></p>
+    
+    <% if  @note.user != current_user %>
+        <p><%= link_to "Leave a comment about their notes", new_note_comment_path(@note) %></p>
+    <% end %>
 </div>

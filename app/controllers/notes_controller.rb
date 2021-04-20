@@ -7,7 +7,6 @@ class NotesController < ApplicationController
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
             @notes = @user.notes
         else
-            @error = "That user doesn't exist" if params[:user_id]
             @notes = Note.all
         end
     end
@@ -32,10 +31,7 @@ class NotesController < ApplicationController
     end
 
     def show
-        #@comment = Comment.new
-        #@comment = @note.comments
-        
-        #redirect_to note_path if !@note
+     
     end
 
     def edit

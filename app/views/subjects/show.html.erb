@@ -10,6 +10,7 @@
       <% @subject.notes.each do |note| %>
         <li><%= link_to note.lesson_name, note_path(note) %>- By: <%= note.user.username %></li></li>
       <% end %>
+      
     </ol>
   </ul>
 </div>

@@ -8,4 +8,5 @@ class Note < ApplicationRecord
     validates :lesson_name, :date, :note_entry, presence: true
 
     accepts_nested_attributes_for :subject, reject_if: proc { |attributes| attributes['name'].blank? }
+
 end
