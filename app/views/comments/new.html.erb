@@ -1,18 +1,14 @@
 <div class="container">
     <%= render partial: "layouts/errors", locals: { object: @comment } %>
-    <br>
-    <% if @comment.note %>
-        <h3>New Comment for <%= note.lesson_name %></h3>
-    <% else%>
-        <h3>New Comment</h3>
-    <% end %>
-
+ 
     <%= form_for([@comment.note, @comment]) do |f|%>
-
+        
+        
         <%= f.label :Comment %>
         <br>
         <%= f.text_area :content, cols:30, rows:5  %>
-        <%= f.hidden_field :note_id%>
+        <%= f.hidden_field :note_id, value: @comment.note_id %>
+       
         <br>
         <%= f.submit %>
     <% end %>

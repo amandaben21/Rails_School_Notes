@@ -1,9 +1,9 @@
 <div class="container">
     <br>
-    <h3>List of all your Lessons</h3>
+    <h3>List of all Lessons</h3>
     <ul>
         <% @notes.each do |note| %> 
-         <li><%= link_to note.lesson_name, note_path(note) %>- By: <%= note.user.username %></li>
+         <li><%= link_to note.lesson_name, user_notes_path(current_user) %>- By: <%= note.user.username %></li>
         <% end %>
     </ul>
     

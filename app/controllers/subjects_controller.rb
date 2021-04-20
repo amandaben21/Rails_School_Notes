@@ -2,7 +2,7 @@ class SubjectsController < ApplicationController
     before_action :redirect_if_not_logged_in
     
     def index
-        @subjects = Subject.all
+        @subjects = Subject.alpha
     end
 
     def show

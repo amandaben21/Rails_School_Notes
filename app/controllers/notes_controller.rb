@@ -8,7 +8,7 @@ class NotesController < ApplicationController
             @notes = @user.notes
         else
             @error = "That user doesn't exist" if params[:user_id]
-            @notes = Notes.all
+            @notes = Note.all
         end
     end
 
@@ -17,7 +17,7 @@ class NotesController < ApplicationController
             @note = @user.notes.build
         else 
             @note = Note.new
-            #@note.build_subject
+            @note.build_subject
         end
     end
 
